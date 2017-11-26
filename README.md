@@ -13,7 +13,13 @@ This section goes through 2nd order optimization at first to briefly explain ``s
 ### 1st/2nd Order Optimization
 
 #### 1st order optimization: 
-(i) The gradient tells us whether the objective is descreasing or increasing at a point, which approximates ``a tangent line`` on the error surface. (ii) A gradient is represented by a ``Jacobian`` Matrix. (iii). The most typical algorithm is ``Gradient Descent``, which updates paramaeters along the steepest descent direction $$\theta_{k+1} = \theta_k - \eta \nabla_{\theta} J(\theta_k),$$ where $\theta$ denotes the parameter set, $\eta$ denotes the step size, and $J$ represents the objective function.
+(i) The gradient tells us whether the objective is descreasing or increasing at a point, which approximates ``a tangent line`` on the error surface. (ii) A gradient is represented by a ``Jacobian`` Matrix. (iii). The most typical algorithm is ``Gradient Descent``, which updates paramaeters along the steepest descent direction 
+
+![equation](https://latex.codecogs.com/gif.latex?\theta_{k&plus;1}&space;=&space;\theta_k&space;-&space;\eta&space;\nabla_{\theta}&space;J(\theta_k)) 
+
+where $\theta$ denotes the parameter set, $\eta$ denotes the step size, and $J$ represents the objective function.
+
+
 
 #### 2nd order optimization: 
 (i) Use the 2nd order derivative to optimize the objective, which provides a ``quadratic surface`` touching the curvature of the error surface. (ii) The 2nd order gradient is represented by a ``Hessian`` Matrix. (iii) The most typical algorithm is ``Newton Method``, which estimates a sequence of optima through quadratic curves and gets rid of the step size. ``Newton Method`` can be derived from Tylor Expansion $$J(\theta + \Delta) = J(\theta) + G(\theta) \Delta + \Delta^T H(\theta) \Delta + o(\Delta^2),$$ take derivative and set as 0 to estimate the optimum $$0 = G(\theta) \Delta + \Delta^T H(\theta) \Delta,$$ we get the next estimation of optimum $$\theta_{k+1} = \theta_k - H^{-1}(\theta_k) G(\theta_k),$$ where \\(\eta\\) is replaced by Hassian inverse, be careful that Hassian inverse may change direction.
