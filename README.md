@@ -15,7 +15,7 @@ This section goes through 2nd order optimization at first to briefly explain ``s
 #### 1st order optimization: 
 (i) The gradient tells us whether the objective is descreasing or increasing at a point, which approximates ``a tangent line`` on the error surface. (ii) A gradient is represented by a ``Jacobian`` Matrix. (iii). The most typical algorithm is ``Gradient Descent``, which updates paramaeters along the steepest descent direction 
 
-![equation](https://latex.codecogs.com/gif.latex?\theta_{k&plus;1}&space;=&space;\theta_k&space;-&space;\eta&space;\nabla_{\theta}&space;J(\theta_k)) 
+![equation](https://latex.codecogs.com/gif.latex?%5Ctheta_%7Bk&plus;1%7D%20%3D%20%5Ctheta_k%20-%20%5Ceta%20%5Cnabla_%7B%5Ctheta%7D%20J%28%5Ctheta_k%29) 
 
 where $\theta$ denotes the parameter set, $\eta$ denotes the step size, and $J$ represents the objective function.
 
