@@ -7,7 +7,7 @@ To get a deeper understanding, I read this [overview blog](http://ruder.io/optim
 I want to summarize and share my understandings and confusions about these brilliant works in this repository.
 The first section will update recent studies going deeper in this direction, and the second section will introduce the basic compenents included in the [PPT](qu_optimizer.pdf).
 
-## Further Reading (TODO)
+## Recent Studies (TODO)
 
 
 ## Basic Algorithms (Included in PPT)
@@ -117,3 +117,29 @@ RMSProp is introduced in [Hinton's lecture 6e](http://www.cs.toronto.edu/~tijmen
 where \\(\gamma = 0.9\\), \\(\eta = 0.001\\) is the default setting.
 RMSProp is also popular in practice, a possible reason is that RMSProp is simpler, another possible reason is that the step size estimation of Adadelta does not always work well.
 
+### Adam
+
+``Adam: A Method for Stochastic Optimization, Diederick P. Kingma and Jimmy Lei Ba, 2015``
+
+Adam is related to Adagrad and RMSProp, and it belongs to momentum methods. Adam estimates the 1st and the 2nd moments with bias correction.
+
+![](fig/adam1.png)
+
+![](fig/adam2.png)
+
+where the biased estimation problem also happend in Adadelta
+
+![](fig/adam3.png)
+
+this problem is shown in the PPT.
+
+The author proves Adam convergence in a convex online learning framework ``Online convex programming and generalized infinitesimal gradient ascent, Zinkevich, Martin, 2003``, proving adam has regret bound \\(O(\sqrt{T})\\). However, the algorithm in this proof is slightly modified in 3 ways:
+
+- the learning rate decays with \\(\sqrt{1/t}\\)
+- the 1st moment decaying parameter also decays along training
+- the constant \\(\epsilon\\) is neglected
+
+For the first two changes, I still do not know their effects. In my previous works, I find the real gradient could be extremely small when using cross entropy loss (where the logit gradient is bounded in (-1,1)). Thus \\(\epsilon\\) could be critical, especially in unbalanced problems.
+
+AdaMax is a variant of adam replacing 2nd moment with infinite noment.
+Nadam is another variant of adam using Nesterov acceleration.
