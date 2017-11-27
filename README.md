@@ -12,9 +12,12 @@ The first section will update recent studies going deeper in this direction, and
 ### The Marginal Value of Adaptive Gradient Methods in Machine Learning, Ashia C. Wilson, et.al. 2017
 
 This paper summarize the updating behaviors of non-adaptive and adaptive methods. 
-But I think its equation 3.3 does not necessarily yield its lemma 3.1.
-The author constructs a simple convex problem where non-adaptive methods work while adaptive methods fail. This problem illustrates the overfitting machanism of adaptive methods, which means the generalization ability of adaptive methods may be worse than non-adaptive ones.
-The author also conducts experiments on deep learning problems, including computer vision, natural language modeling and parsing. All the experiments show adaptive algorithms are no better than non-adaptive ones, which is very interesting.
+The author constructs a simple convex problem where non-adaptive methods work while adaptive methods fail. This problem illustrates the overfitting problem of adaptive methods, which means the generalization ability of adaptive methods may be worse than non-adaptive ones.
+The author also conducts experiments on deep learning problems, including computer vision, natural language modeling and parsing. All the experiments show adaptive algorithms are no better than non-adaptive ones. 
+
+This paper concludes in 2 aspects:
+- Adaptive method is not a free lunch, and still needs careful tuning.
+- Non-adaptive method with carefully designed decaying schedule can have good performance.
 
 ## Basic Algorithms (Included in PPT)
 This section goes through 2nd order optimization at first to briefly explain ``step size estimation``, and then goes through 1st order optimization which is much more popular in deep learning and other applications involving neural networks. 
