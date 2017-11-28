@@ -21,9 +21,23 @@ This paper concludes in 2 aspects:
 
 ### Fixing Weight Decay Regularization in Adam, Ilya Loshchilov, et. al. 2017
 
-This paper follows ``The Marginal Value of Adaptive Gradient Methods in Machine Learning`` and ``Stochastic Gradient Descent with Warm Restarts``. It states that in image classification tasks, SGD (with momentum) outperforms adaptive methods. The author tries to improve adaptive methods by fixing a ``weight decay issue``. The author first explains the difference between weight decay and L2 regularization, where weight decay operates parameters directly, while L2 operates gradients instead. Thus methods using momentum tend to update parameters differently with weight decay and L2.
+This paper follows ``The Marginal Value of Adaptive Gradient Methods in Machine Learning`` and ``Stochastic Gradient Descent with Warm Restarts``. It states that in image classification tasks, SGD (with momentum) outperforms adaptive methods. The author tries to improve adaptive methods by fixing a ``weight decay issue``. The author first explains the difference between weight decay and L2 regularization, where weight decay operates parameters directly, while L2 operates gradients instead. Thus moment-based methods tend to update parameters differently with weight decay and L2.
 
 The author also uses warm restart and normalized weight decay techniques to control learning rate and decay coefficient. And Adam optimizer gets improved with such modifications, namely AdamWR. Unfortunately, AdamWR still can not outperform SGDWR (with weight decay fixed, normalized weight decay, and warm start).
+
+### Stochastic Gradient Descent with Warm Restarts
+
+### Shake Shake Regularization
+
+### Normalized Direction-Preserving Adam, Zijun Zhang, et. al. 2017
+
+This paper challenges Adam in 2 aspects: the direction missing problem, and the ill-conditioning problem. As for the direction missing problem, the author changes Adam into a non-adaptive method by replacing the 2nd moment term with its norm, thus different parameters share the same step size. As for the ill-conditioning problem, the author explains this problem via L2 regularization, but I think this explanation is too fancy.
+
+According to experiments on Cifar-10 and Cifar-100, ND-Adam slightly outperforms SGD. And the training curve of ND-Adam is more like SGD than Adam.
+
+### Understanding Deep Learning Requires Rethinking Generalization
+
+### A Closer Look at Memorization in Deep Networks
 
 ## Basic Algorithms (Included in PPT)
 This section goes through 2nd order optimization at first to briefly explain ``step size estimation``, and then goes through 1st order optimization which is much more popular in deep learning and other applications involving neural networks. 
