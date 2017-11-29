@@ -12,7 +12,7 @@ The first section will update recent studies going deeper in this direction, and
 ### The Marginal Value of Adaptive Gradient Methods in Machine Learning, Ashia C. Wilson, et.al. 2017
 
 This paper summarizes the updating behaviors of non-adaptive and adaptive methods. 
-The author constructs a simple convex problem where non-adaptive methods work while adaptive methods fail. This problem illustrates the overfitting problem of adaptive methods, which means the generalization ability of adaptive methods may be worse than non-adaptive ones.
+The author constructs a simple convex problem where non-adaptive methods work while adaptive methods fail. This illustrates the overfitting problem of adaptive methods, which means the generalization ability of adaptive methods may be worse than non-adaptive ones.
 The author also conducts experiments on deep learning problems, including computer vision, natural language modeling, and parsing. All the experiments show adaptive algorithms are no better than non-adaptive ones. 
 
 This paper concludes in 2 aspects:
@@ -23,7 +23,7 @@ This paper concludes in 2 aspects:
 
 This paper follows ``The Marginal Value of Adaptive Gradient Methods in Machine Learning`` and ``Stochastic Gradient Descent with Warm Restarts``. It states that in image classification tasks, SGD (with momentum) outperforms adaptive methods. The author tries to improve adaptive methods by fixing a ``weight decay issue``. The author first explains the difference between weight decay and L2 regularization, where weight decay operates parameters directly, while L2 operates gradients instead. Thus moment-based methods tend to update parameters differently with weight decay and L2.
 
-The author also uses warm restart and normalized weight decay techniques to control learning rate and decay coefficient. And Adam optimizer gets improved with such modifications, namely AdamWR. Unfortunately, AdamWR still can not outperform SGDWR (with weight decay fixed, normalized weight decay, and warm start).
+The author also uses warm restart and normalized weight decay techniques to control learning rate and decay coefficient. And Adam optimizer gets improved with such modifications, namely AdamWR. Unfortunately, AdamWR still can not outperform SGDWR (with weight decay issue fixed, normalized weight decay, and warm start).
 
 ### Stochastic Gradient Descent with Warm Restarts
 
@@ -31,9 +31,9 @@ The author also uses warm restart and normalized weight decay techniques to cont
 
 ### Normalized Direction-Preserving Adam, Zijun Zhang, et. al. 2017
 
-This paper challenges Adam in 2 aspects: the direction missing problem, and the ill-conditioning problem. As for the direction missing problem, the author changes Adam into a non-adaptive method by replacing the 2nd moment term with its norm, thus different parameters share the same step size. As for the ill-conditioning problem, the author explains this problem via L2 regularization, but I think this explanation is too fancy.
+This paper challenges Adam in 2 aspects: the direction missing problem, and the ill-conditioning problem. As for the direction missing problem, the author changes Adam into a non-adaptive method by replacing the 2nd moment term with its norm, thus different parameters share the same step size. This point follows ``The Marginal Value of Adaptive Gradient Methods in Machine Learning`` directly. As for the ill-conditioning problem, the author explains it via L2 regularization and weight normalization, but I think this explanation is a bit fancy and tricky. Because the author does not present ablation experiments, I am not sure whether the 2nd problem is critical or not.
 
-According to experiments on Cifar-10 and Cifar-100, ND-Adam slightly outperforms SGD. And the training curve of ND-Adam is more like SGD than Adam.
+This work is named by ND-Adam, but I think this version is no longer adaptive, for parameters in a matrix sharing same learning rate. According to experiments on Cifar-10 and Cifar-100, ND-Adam slightly outperforms SGD. And the training curve of ND-Adam is more like SGD than Adam. However, the Cifar accuracy is no better than this work ``Shake Shake Regularization``.
 
 ### Understanding Deep Learning Requires Rethinking Generalization
 
