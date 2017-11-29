@@ -35,7 +35,9 @@ This paper challenges Adam in 2 aspects: the direction missing problem, and the 
 
 This work is named by ND-Adam, but I think this version is no longer adaptive, for parameters in a matrix sharing same learning rate. According to experiments on Cifar-10 and Cifar-100, ND-Adam slightly outperforms SGD. And the training curve of ND-Adam is more like SGD than Adam. However, the Cifar accuracy is no better than this work ``Shake Shake Regularization``.
 
-### Understanding Deep Learning Requires Rethinking Generalization
+### Understanding Deep Learning Requires Rethinking Generalization, Chiyuan Zhang, et. al. 2017
+
+This paper shows the extremely powerful learning ability of neural networks when parameter amount exceeds sample amount. The experiments are conducted on Cifar and ImageNet, where the labels and pixels are replaced by random noise. It is interesting that even though the patterns are broken, DNNs can still achieve 100% accuracy on training set. It is likely that a DNN with lots of parameters can perfectly memorize the training data points. This paper challenges the interpretation of traditional complexity theories on DNNs and proposes finite-sample expressivity. Besides, the author discusses regularization techniques in linear models to understand the source of generalization. This paper inspires a direction for studying the generalization ability in finite sample cases.
 
 ### A Closer Look at Memorization in Deep Networks
 
