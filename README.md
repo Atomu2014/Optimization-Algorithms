@@ -41,6 +41,8 @@ This paper shows the extremely powerful learning ability of neural networks when
 
 ### A Closer Look at Memorization in Deep Networks
 
+This paper follows ``Understanding Deep Learning Requires Rethinking Generalization`` and investigates further in DNN memorization. Deep network has the ability to memorize the training examples, but this does not necessarily mean memorization is the only way DNN learns. This paper concludes a DNN learns simple patterns at first, and then memorizes noise data. Besides, this paper yields an opposite conclusion that regularization does help to generalization, because regularization such as dropout can significantly reduce the memorization ability on noise data. 
+
 ## Basic Algorithms (Included in PPT)
 This section goes through 2nd order optimization at first to briefly explain ``step size estimation``, and then goes through 1st order optimization which is much more popular in deep learning and other applications involving neural networks. 
 
