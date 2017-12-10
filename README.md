@@ -43,6 +43,12 @@ This paper shows the extremely powerful learning ability of neural networks when
 
 This paper follows ``Understanding Deep Learning Requires Rethinking Generalization`` and investigates further in DNN memorization. Deep network has the ability to memorize the training examples, but this does not necessarily mean memorization is the only way DNN learns. This paper concludes a DNN learns simple patterns at first, and then memorizes noise data. Besides, this paper yields an opposite conclusion that regularization does help to generalization, because regularization such as dropout can significantly reduce the memorization ability on noise data. 
 
+### On The Convergence of Adam and Beyond, ICLR2018 under review.
+
+This paper points out a flaw in Adam convergence proof. The point of interest is the estimated step size by adaptive algorithms (ep.2), where SGD and Adagrad follow non-increasing step size, but Adam and RMSProp do not. A critical example is constructed where the step size of Adam fluctuates periodically, and the estimated step size leads Adam to non-convergence on a 1-dim convex problem, i.e. average regret does not approach 0.
+
+Then this paper proposes AMSGrad, which is similar to Adamax, to fix the ``exponential moving average`` problem. And AMSGrad shows better learning curves than Adam on a synthetic data and Cifar. At last, the author gives a condition which guarantees Adam convergence.
+
 ## Basic Algorithms (Included in PPT)
 This section goes through 2nd order optimization at first to briefly explain ``step size estimation``, and then goes through 1st order optimization which is much more popular in deep learning and other applications involving neural networks. 
 
