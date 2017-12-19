@@ -38,6 +38,14 @@ This paper follows ``Understanding Deep Learning Requires Rethinking Generalizat
 This paper points out a mistake in Adam convergence proof. The point of interest is the estimated step size by adaptive algorithms (ep.2), where SGD and Adagrad follow non-increasing step size, but Adam and RMSProp do not. This issue may lead to average regret not approaching 0.
 Then this paper proposes AMSGrad, and AMSGrad shows better learning curves than Adam on a synthetic data and Cifar.
 
+### Deep Sets, Manzil Zaheer, et. al. 2017
+
+This paper proves a universal approximator with permutation invariant property. The function family is designed for unordered set data.
+
+### Train longer, generalize better: closing the generalization gap in large batch training of neural networks, Elad Hoffer, et. al. 2017
+
+The author proposes to increase the learning rate with the square root of the mini-batch size and Ghost Batch Normalization trick. The results show that big batch can achieve the same convergence performance with small batch.
+
 ## Basic Algorithms (Included in PPT)
 This section goes through 2nd order optimization at first to briefly explain ``step size estimation``, and then goes through 1st order optimization which is much more popular in deep learning and other applications involving neural networks. 
 
