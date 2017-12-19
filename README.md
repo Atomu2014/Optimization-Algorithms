@@ -12,42 +12,31 @@ The first section will update recent studies going deeper in this direction, and
 ### The Marginal Value of Adaptive Gradient Methods in Machine Learning, Ashia C. Wilson, et.al. 2017
 
 This paper summarizes the updating behaviors of non-adaptive and adaptive methods. 
-The author constructs a simple convex problem where non-adaptive methods work while adaptive methods fail. This illustrates the overfitting problem of adaptive methods, which means the generalization ability of adaptive methods may be worse than non-adaptive ones.
-The author also conducts experiments on deep learning problems, including computer vision, natural language modeling, and parsing. All the experiments show adaptive algorithms are no better than non-adaptive ones. 
-
 This paper concludes in 2 aspects:
-- Adaptive methods are not free lunch, and still need careful tuning.
+- Adaptive methods still need careful tuning.
 - Non-adaptive methods with carefully designed decaying schedule can have good performance.
 
 ### Fixing Weight Decay Regularization in Adam, Ilya Loshchilov, et. al. 2017
 
-This paper follows ``The Marginal Value of Adaptive Gradient Methods in Machine Learning`` and ``Stochastic Gradient Descent with Warm Restarts``. It states that in image classification tasks, SGD (with momentum) outperforms adaptive methods. The author tries to improve adaptive methods by fixing a ``weight decay issue``. The author first explains the difference between weight decay and L2 regularization, where weight decay operates parameters directly, while L2 operates gradients instead. Thus moment-based methods tend to update parameters differently with weight decay and L2.
-
-The author also uses warm restart and normalized weight decay techniques to control learning rate and decay coefficient. And Adam optimizer gets improved with such modifications, namely AdamWR. Unfortunately, AdamWR still can not outperform SGDWR (with weight decay issue fixed, normalized weight decay, and warm start).
-
-### Stochastic Gradient Descent with Warm Restarts
-
-### Shake Shake Regularization
+This paper follows ``The Marginal Value of Adaptive Gradient Methods in Machine Learning`` and ``Stochastic Gradient Descent with Warm Restarts``. The author explains the difference between weight decay and L2 regularization, where weight decay operates parameters directly, while L2 operates gradients instead. Thus moment-based methods tend to update parameters differently with weight decay and L2.
 
 ### Normalized Direction-Preserving Adam, Zijun Zhang, et. al. 2017
 
-This paper challenges Adam in 2 aspects: the direction missing problem, and the ill-conditioning problem. As for the direction missing problem, the author changes Adam into a non-adaptive method by replacing the 2nd moment term with its norm, thus different parameters share the same step size. This point follows ``The Marginal Value of Adaptive Gradient Methods in Machine Learning`` directly. As for the ill-conditioning problem, the author explains it via L2 regularization and weight normalization, but I think this explanation is a bit fancy and tricky. Because the author does not present ablation experiments, I am not sure whether the 2nd problem is critical or not.
-
-This work is named by ND-Adam, but I think this version is no longer adaptive, for parameters in a matrix sharing same learning rate. According to experiments on Cifar-10 and Cifar-100, ND-Adam slightly outperforms SGD. And the training curve of ND-Adam is more like SGD than Adam. However, the Cifar accuracy is no better than this work ``Shake Shake Regularization``.
+This paper challenges Adam in 2 aspects: the direction missing problem, and the ill-conditioning problem. 
+According to experiments on Cifar-10 and Cifar-100, ND-Adam slightly outperforms SGD. And the training curve of ND-Adam is more like SGD than Adam.
 
 ### Understanding Deep Learning Requires Rethinking Generalization, Chiyuan Zhang, et. al. 2017
 
-This paper shows the extremely powerful learning ability of neural networks when parameter amount exceeds sample amount. The experiments are conducted on Cifar and ImageNet, where the labels and pixels are replaced by random noise. It is interesting that even though the patterns are broken, DNNs can still achieve 100% accuracy on training set. It is likely that a DNN with lots of parameters can perfectly memorize the training data points. This paper challenges the interpretation of traditional complexity theories on DNNs and proposes finite-sample expressivity. Besides, the author discusses regularization techniques in linear models to understand the source of generalization. This paper inspires a direction for studying the generalization ability in finite sample cases.
+This paper shows the extremely powerful learning ability of neural networks when parameter amount exceeds sample amount. The experiments are conducted on Cifar and ImageNet, where the labels and pixels are replaced by random noise. It is interesting that even though the patterns are broken, DNNs can still achieve 100% accuracy on training set.
 
 ### A Closer Look at Memorization in Deep Networks
 
-This paper follows ``Understanding Deep Learning Requires Rethinking Generalization`` and investigates further in DNN memorization. Deep network has the ability to memorize the training examples, but this does not necessarily mean memorization is the only way DNN learns. This paper concludes a DNN learns simple patterns at first, and then memorizes noise data. Besides, this paper yields an opposite conclusion that regularization does help to generalization, because regularization such as dropout can significantly reduce the memorization ability on noise data. 
+This paper follows ``Understanding Deep Learning Requires Rethinking Generalization`` and investigates further in DNN memorization. This paper concludes a DNN learns simple patterns at first, and then memorizes noise data. 
 
 ### On The Convergence of Adam and Beyond, ICLR2018 under review.
 
-This paper points out a flaw in Adam convergence proof. The point of interest is the estimated step size by adaptive algorithms (ep.2), where SGD and Adagrad follow non-increasing step size, but Adam and RMSProp do not. A critical example is constructed where the step size of Adam fluctuates periodically, and the estimated step size leads Adam to non-convergence on a 1-dim convex problem, i.e. average regret does not approach 0.
-
-Then this paper proposes AMSGrad, which is similar to Adamax, to fix the ``exponential moving average`` problem. And AMSGrad shows better learning curves than Adam on a synthetic data and Cifar. At last, the author gives a condition which guarantees Adam convergence.
+This paper points out a mistake in Adam convergence proof. The point of interest is the estimated step size by adaptive algorithms (ep.2), where SGD and Adagrad follow non-increasing step size, but Adam and RMSProp do not. This issue may lead to average regret not approaching 0.
+Then this paper proposes AMSGrad, and AMSGrad shows better learning curves than Adam on a synthetic data and Cifar.
 
 ## Basic Algorithms (Included in PPT)
 This section goes through 2nd order optimization at first to briefly explain ``step size estimation``, and then goes through 1st order optimization which is much more popular in deep learning and other applications involving neural networks. 
