@@ -33,7 +33,7 @@ This paper shows the extremely powerful learning ability of neural networks when
 
 This paper follows ``Understanding Deep Learning Requires Rethinking Generalization`` and investigates further in DNN memorization. This paper concludes a DNN learns simple patterns at first, and then memorizes noise data. 
 
-### On The Convergence of Adam and Beyond, ICLR2018 under review.
+### On The Convergence of Adam and Beyond, ICLR2018.
 
 This paper points out a mistake in Adam convergence proof. The point of interest is the estimated step size by adaptive algorithms (ep.2), where SGD and Adagrad follow non-increasing step size, but Adam and RMSProp do not. This issue may lead to average regret not approaching 0.
 Then this paper proposes AMSGrad, and AMSGrad shows better learning curves than Adam on a synthetic data and Cifar.
@@ -45,6 +45,16 @@ This paper proves a universal approximator with permutation invariant property. 
 ### Train longer, generalize better: closing the generalization gap in large batch training of neural networks, Elad Hoffer, et. al. 2017
 
 The author proposes to increase the learning rate with the square root of the mini-batch size and Ghost Batch Normalization trick. The results show that big batch can achieve the same convergence performance with small batch.
+
+### Train faster, generalize better
+
+### Instance Normalization
+
+### Streaming Normalization
+
+### Spectral Normalization
+
+### Group Normalization
 
 ## Basic Algorithms (Included in PPT)
 This section goes through 2nd order optimization at first to briefly explain ``step size estimation``, and then goes through 1st order optimization which is much more popular in deep learning and other applications involving neural networks. 
